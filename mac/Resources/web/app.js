@@ -899,9 +899,12 @@ function ping(kind) {
     else play(0.01);
   } catch {}
 }
+// The switch is a speaker (index.html): its tooltip and its name to a screen reader say which way it is set.
 function paintSound() {
-  $('sound').textContent = soundOn ? 'sound on' : 'sound off';
-  $('sound').classList.toggle('on', soundOn);
+  const b = $('sound'), label = soundOn ? 'Sound on' : 'Sound off';
+  b.title = label;
+  b.setAttribute('aria-label', label);
+  b.classList.toggle('on', soundOn);
 }
 $('sound').addEventListener('click', () => {
   soundOn = !soundOn;

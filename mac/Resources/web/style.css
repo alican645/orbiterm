@@ -190,7 +190,11 @@ body::after {
 .topbtn:hover { color: var(--hi); border-color: var(--accent); box-shadow: 0 0 10px rgba(var(--accent-rgb), 0.35); }
 .topbtn.primary { color: var(--ink); background: var(--accent); border-color: var(--accent); font-weight: 700; }
 .topbtn.primary:hover { color: var(--ink); background: var(--accent-soft); }
-#sound.on { color: var(--ink); background: var(--accent); }
+/* The sound switch, a speaker: off, dimmed with a mute mark; on, its waves in the theme's accent, hovered or not. */
+#sound .sw, #sound.on .sx { display: none; }
+#sound.on .sw { display: inline; }
+#sound:not(.on):not(:hover) svg { opacity: 0.55; }
+#sound.on, #sound.on:hover { color: var(--accent); }
 
 /* ---------- panels ---------- */
 .panel { position: relative; display: flex; flex-direction: column; min-height: 0; min-width: 0; border: 1px solid var(--line); background: var(--panel); }
