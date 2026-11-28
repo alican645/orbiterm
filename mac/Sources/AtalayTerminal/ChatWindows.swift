@@ -11,6 +11,8 @@ enum ChatWindows {
         set { UserDefaults.standard.set(newValue, forKey: freeKey) }
     }
 
-    /// An ordinary window's behaviour: managed, in ⌘-` and the Window menu, and able to go full screen or into Split View.
-    static let freeBehavior: NSWindow.CollectionBehavior = [.managed, .participatesInCycle, .fullScreenPrimary]
+    /// An ordinary window's behaviour: managed (Move & Resize places it), in ⌘-` and the Window menu, and able to go into
+    /// Split View. Auxiliary rather than primary, so it may stay over a full-screen dashboard: a primary window there is
+    /// moved off that Space, and switching the setting while the dashboard was full screen left the Space behind empty.
+    static let freeBehavior: NSWindow.CollectionBehavior = [.managed, .participatesInCycle, .fullScreenAuxiliary, .fullScreenAllowsTiling]
 }
